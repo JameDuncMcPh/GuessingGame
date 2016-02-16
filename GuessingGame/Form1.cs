@@ -18,6 +18,7 @@ namespace GuessingGame
         //creates a random number between 1 and 100 and stores it in a global 
         //variable that can be used throughout the program 
         public static Random randNum = new Random();
+        public static List<int> guessList = new List<int>();
         int rand = randNum.Next(1, 101); 
 
         public Form1()
@@ -29,6 +30,7 @@ namespace GuessingGame
         {
             // get the users guess and place into a variable
             int guess = Convert.ToInt16(inputBox.Text);
+            guessList.Add(guess);
 
             // check guess against the random value and output appropriate message
             if (guess < rand)
@@ -42,6 +44,11 @@ namespace GuessingGame
             else
             {
                 outputLabel.Text = "You Got it!";
+
+                //Create new login screen
+                loginScreen ls = new loginScreen();
+                this.Controls.Add(ls);
+                this.Controls.Remove(this);
             }
 
             // clear out the input box 
