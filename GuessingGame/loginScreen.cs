@@ -16,8 +16,18 @@ namespace GuessingGame
             InitializeComponent();
 
             numberLabel.Text = Convert.ToString(Form1.guessList.Count());
-            orderLabel.Text = Form1.guessList.ToString();
-          //  numberedLabel.Text = ;
+
+            foreach (int number in Form1.guessList)
+            {
+                orderLabel.Text += Convert.ToString(number) + ",";
+            }
+
+            Form1.guessList.Sort();
+
+            foreach (int number in Form1.guessList)
+            {
+                numberedLabel.Text += Convert.ToString(number) + ",";
+            }
         }
     }
 }
